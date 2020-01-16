@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/hello', (req, res) => {
+    console.log("request received")
   res.send({ express: 'Hello From Express' });
 });
 

@@ -1,23 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import { Button } from 'antd';
 import './App.css';
 
 function App() {
+
+  const [data, setData] = useState('');
+
+  const callAPI = async () => {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  }
+
+  const setRd = () => {
+    callAPI()
+      .then(body => { setData(body.express) })
+      .catch(err => console.log(err))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button type="primary" size="large">Primary</Button>
+        <h2> call out to API on ther express backend </h2>
+        <Button onClick={() => setRd()}>click to get API response</Button>
+        <h3>{data}</h3>
       </header>
     </div>
   );
