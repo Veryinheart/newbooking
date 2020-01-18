@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-
+// import Layout from './layout/layout';
 import { Button } from 'antd';
+
+import Header from './layout/header';
 import './App.css';
+import Login from './component/Login';
+import Signup from './component/Signup'
+
 
 function App() {
 
@@ -23,12 +28,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+
+      {/* <Login></Login> */}
+      <Signup></Signup>
+      {/* <Header></Header> */}
+      {/* <Layout></Layout> */}
+      {/* <header className="App-header">
         <Button type="primary" size="large">Primary</Button>
         <h2> call out to API on ther express backend </h2>
         <Button onClick={() => setRd()}>click to get API response</Button>
         <h3>{data}</h3>
-      </header>
+      </header> */}
     </div>
   );
 }

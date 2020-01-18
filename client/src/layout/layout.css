@@ -1,0 +1,9 @@
+.header {
+    
+    justify-content: right;
+    align-items: center;
+    background: #f8f8f8;
+    height: 41px;
+    border-bottom: 1px solid #eaeaea;
+    line-height: 41px;
+}
