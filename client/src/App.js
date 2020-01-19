@@ -6,6 +6,14 @@ import Header from './layout/header';
 import './App.css';
 import Login from './component/Login';
 import Signup from './component/Signup'
+import Home from './component/Home';
+import {
+  BrowserRouter as Router,
+  //HashRouter,
+  Route,
+  Switch
+} from 'react-router-dom';
+
 
 
 function App() {
@@ -27,19 +35,25 @@ function App() {
   }
 
   return (
-    <div className="App">
 
-      {/* <Login></Login> */}
-      <Signup></Signup>
-      {/* <Header></Header> */}
-      {/* <Layout></Layout> */}
-      {/* <header className="App-header">
-        <Button type="primary" size="large">Primary</Button>
-        <h2> call out to API on ther express backend </h2>
-        <Button onClick={() => setRd()}>click to get API response</Button>
-        <h3>{data}</h3>
-      </header> */}
-    </div>
+    <Router>
+
+
+
+
+
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+
+          <Route exact path="/Signup" component={Signup} />
+
+          <Route exact path="/Login" component={Login} />
+        </Switch>
+      </div>
+
+
+    </Router>
   );
 }
 
