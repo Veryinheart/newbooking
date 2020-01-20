@@ -12,7 +12,7 @@ class header extends Component {
 
     render() {
         return (
-            <div className="header">
+            <div className="header" style={{dispaly:'flex', justify:'end',float:'right'}}>
                 <Button>Create an account</Button>
                 <Button >Log in</Button> 
                

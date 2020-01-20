@@ -1,10 +1,134 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Layout, Menu, Icon, Dropdown, Button } from 'antd';
+import './Home.css';
+import 'antd/dist/antd.css';
+import { Avatar } from 'antd';
+import { Row, Col } from 'antd';
+
+
+
+
+const { Header, Sider, Content } = Layout;
+const menu = (
+    <Menu >
+        <Menu.Item key="1">
+            <Icon type="poweroff" />
+            Log out
+      </Menu.Item>
+    </Menu>
+);
+const language = (
+    <Menu >
+        <Menu.Item key="1">
+            <Icon />
+            Chinese
+        </Menu.Item>
+        <Menu.Item key="2">
+            <Icon />
+            English
+        </Menu.Item>
+    </Menu>
+);
+
+
 
 export class Home extends Component {
+
+    state = {
+        collapsed: false,
+    };
+
+    toggle = () => {
+        this.setState({
+            collapsed: !this.state.collapsed,
+        });
+    };
+
     render() {
         return (
             <div>
-                <h2>this is Home page</h2>
+                <Layout>
+                    <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+                        <div className="logo" />
+                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                            <Menu.Item key="1">
+                                <Icon type="user" />
+                                <span>User</span>
+                            </Menu.Item>
+                            <Menu.Item key="2">
+                                <Icon type="trademark" />
+                                <span>reservation</span>
+                            </Menu.Item>
+                            <Menu.Item key="3">
+                                <Icon type="contact us" />
+                                <span>nav 3</span>
+                            </Menu.Item>
+                            <Menu.Item key="4">
+                                <Icon type="contact us" />
+                                <span>nav 3</span>
+                            </Menu.Item>
+                            <Menu.Item key="5">
+                                <Icon type="contact us" />
+                                <span>nav 3</span>
+                            </Menu.Item>
+                            <Menu.Item key="6">
+                                <Icon type="contact us" />
+                                <span>nav 3</span>
+                            </Menu.Item>
+
+
+                        </Menu>
+                    </Sider>
+                    <Layout>
+                        <div>
+                            <Header style={{ background: '#fff', padding: 0 }}>
+
+                                <Icon
+                                    className="trigger"
+                                    type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                    onClick={this.toggle}
+                                />
+                                 <Dropdown overlay={menu} >
+                                    <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
+                                        <Icon type="user" />
+                                    </Button>
+                                </Dropdown>
+                                <Dropdown overlay={language}>
+                                    <Button style={{float:'right', marginRight: '10px', marginTop: '10px'}}>
+                                        Language <Icon type="down" />
+                                    </Button>
+                                </Dropdown>
+                               
+
+
+
+
+
+                            </Header>
+                        </div>
+                        <Content
+                            style={{
+                                margin: '24px 16px',
+                                padding: 24,
+                                background: '#fff',
+                                minHeight: 380,
+                            }}
+                        >
+                            Content
+                            <h2></h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                            <h2>AAA</h2><br />
+                        </Content>
+                    </Layout>
+                </Layout>
             </div>
         )
     }
