@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon, Dropdown, Button } from 'antd';
+import { Layout, Menu, Icon, Dropdown, Button, Input, Pagination, List } from 'antd';
 import './Home.css';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
+import HotelContent from '../layout/content'
 
 
 
+const { Search } = Input;
 
 const { Header, Sider, Content } = Layout;
 const menu = (
@@ -88,17 +90,17 @@ export class Home extends Component {
                                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                     onClick={this.toggle}
                                 />
-                                 <Dropdown overlay={menu} >
+                                <Dropdown overlay={menu} >
                                     <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
                                         <Icon type="user" />
                                     </Button>
                                 </Dropdown>
                                 <Dropdown overlay={language}>
-                                    <Button style={{float:'right', marginRight: '10px', marginTop: '10px'}}>
+                                    <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
                                         Language <Icon type="down" />
                                     </Button>
                                 </Dropdown>
-                               
+
 
 
 
@@ -114,18 +116,16 @@ export class Home extends Component {
                                 minHeight: 380,
                             }}
                         >
-                            Content
-                            <h2></h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
-                            <h2>AAA</h2><br />
+
+                            <Search placeholder="input search text"
+                                onSearch={value => console.log(value)} enterButton style={{ width: '30%' }} />
+                            <br />
+
+                            <div>
+
+                            </div>
+                            <HotelContent/>
+                            
                         </Content>
                     </Layout>
                 </Layout>

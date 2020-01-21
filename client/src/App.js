@@ -45,12 +45,12 @@ function App() {
 
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} /> 
 
-          <Route exact path="/Signup" component={Signup} />
+          <Route exact path="/Signup" component={Signup} /> 
 
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/Header" component={Header} />
+          <Route exact path="/Login" component={Login} /> 
+          <Route exact path="/Header" component={Header} /> 
         </Switch>
       </div>
 
