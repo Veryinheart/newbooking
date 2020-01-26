@@ -4,7 +4,7 @@ import './Home.css';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
-import HotelContent from '../layout/content'
+import HotelContent from '../layout/Content'
 
 
 

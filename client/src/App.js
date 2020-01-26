@@ -7,7 +7,8 @@ import './App.css';
 import Login from './component/Login';
 import Signup from './component/Signup'
 import Home from './component/Home';
-import Header from './layout/header';
+import Header from './layout/Header';
+import Layout from './layout/Layout';
 import {
   BrowserRouter as Router,
   //HashRouter,
@@ -44,9 +45,10 @@ function App() {
 
 
       <div className="App">
+        
         <Switch>
-          <Route exact path="/" component={Home} /> 
-
+          <Route exact path="/" component={Layout} /> 
+          <Route exact path="/home" component={Home} /> 
           <Route exact path="/Signup" component={Signup} /> 
 
           <Route exact path="/Login" component={Login} /> 
