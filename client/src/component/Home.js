@@ -4,8 +4,8 @@ import './Home.css';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
-import HotelContent from '../layout/Content'
-
+import HotelContent from '../layout/Content';
+import Footer from '../layout/Footer';
 
 
 const { Search } = Input;
@@ -50,7 +50,7 @@ export class Home extends Component {
         return (
             <div>
                 <Layout>
-                    <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+                    {/* <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
                         <div className="logo" />
                         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                             <Menu.Item key="1">
@@ -80,16 +80,16 @@ export class Home extends Component {
 
 
                         </Menu>
-                    </Sider>
+                    </Sider> */}
                     <Layout>
                         <div>
                             <Header style={{ background: '#fff', padding: 0 }}>
 
-                                <Icon
+                                {/* <Icon
                                     className="trigger"
                                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                     onClick={this.toggle}
-                                />
+                                /> */}
                                 <Dropdown overlay={menu} >
                                     <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
                                         <Icon type="user" />
@@ -125,6 +125,7 @@ export class Home extends Component {
 
                             </div>
                             <HotelContent/>
+                            <Footer/>
                             
                         </Content>
                     </Layout>

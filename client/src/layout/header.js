@@ -29,8 +29,8 @@ export default function Header() {
   const classes = useStyles();
   
   const sections = [
-    { title: 'Technology', url: '#' },
-    { title: 'Design', url: '#' },
+    { title: 'TOP 10', url: '#' },
+    { title: 'Popular', url: '#' },
     { title: 'Culture', url: '#' },
     { title: 'Business', url: '#' },
     { title: 'Politics', url: '#' },
@@ -59,7 +59,7 @@ export default function Header() {
         <IconButton>
           {/* <SearchIcon /> */}
         </IconButton>
-        <Button variant="outlined" size="small">
+        <Button variant="outlined" size="small" href='/login'>
           Log In
         </Button>
       </Toolbar>
