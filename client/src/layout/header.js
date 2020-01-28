@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 // import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Row, Col } from 'antd';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header() {
   const classes = useStyles();
-  
+
   const sections = [
     { title: 'TOP 10', url: '#' },
     { title: 'Popular', url: '#' },
@@ -40,7 +41,7 @@ export default function Header() {
     { title: 'Style', url: '#' },
     { title: 'Travel', url: '#' },
   ];
-  
+
 
   return (
     <React.Fragment>
@@ -56,12 +57,21 @@ export default function Header() {
         >
           Newbooking
         </Typography>
-        <IconButton>
+        {/* <IconButton>
           {/* <SearchIcon /> */}
-        </IconButton>
-        <Button variant="outlined" size="small" href='/login'>
-          Log In
-        </Button>
+        {/* </IconButton> */}
+        <Row type="flex" justify="space-around">
+          <Col>
+            <Button variant="outlined" size="small" href='/signup'>
+              Sign Up
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="outlined" size="small" href='/login'>
+              Log In
+            </Button>
+          </Col>
+        </Row>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map(section => (

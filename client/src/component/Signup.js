@@ -71,8 +71,12 @@ export default function Signup() {
   });
 
   const Signup = ()=>{
-    axios.post('/posts/signup',user);
-         
+     axios.post('/api/user/signup',user);
+  //   fetch('/api/user/signup',{
+  //     method:'post',
+  //     body: JSON.stringify(user),
+  //     headers: {"Content-Type":"application/json"},
+  // })  
   }
 
   const handleSignup = (e) => {

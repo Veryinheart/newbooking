@@ -16,7 +16,7 @@ Router.post('/signup', (req, res) => {
   // console.log('object')
 })
 
-Router.post('./api/user', (req, res) => {
+Router.post('/user', (req, res) => {
   console.log(req.body);
 })
 
