@@ -6,9 +6,10 @@ import { Avatar } from 'antd';
 import { Row, Col } from 'antd';
 import HotelContent from '../layout/Content';
 import Footer from '../layout/Footer';
+import Typography from '@material-ui/core/Typography';
 
 
-const { Search } = Input;
+
 
 const { Header, Sider, Content } = Layout;
 const menu = (
@@ -85,11 +86,16 @@ export class Home extends Component {
                         <div>
                             <Header style={{ background: '#fff', padding: 0 }}>
 
-                                {/* <Icon
-                                    className="trigger"
-                                    type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                                    onClick={this.toggle}
-                                /> */}
+                                {/* <Typography
+                                    // component="h1"
+                                    variant="h7"
+                                    color="inherit"
+                                    align="flex"
+                                    // noWrap
+                                    // className={classes.toolbarTitle}
+                                    >
+                                    Newbooking
+                                    </Typography> */}
                                 <Dropdown overlay={menu} >
                                     <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
                                         <Icon type="user" />
@@ -117,16 +123,14 @@ export class Home extends Component {
                             }}
                         >
 
-                            <Search placeholder="input search text"
-                                onSearch={value => console.log(value)} enterButton style={{ width: '30%' }} />
-                            <br />
+
 
                             <div>
 
                             </div>
-                            <HotelContent/>
-                            <Footer/>
-                            
+                            <HotelContent />
+                            <Footer />
+
                         </Content>
                     </Layout>
                 </Layout>

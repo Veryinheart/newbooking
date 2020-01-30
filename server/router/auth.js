@@ -30,7 +30,10 @@ Router.post('/signup', async (req, res) => {
     });
     try {
         const savedUser = await user.save();
-        res.send(savedUser);
+        res.status(200).json({
+            message:"signup successful"
+
+        })
     } catch (error) {
         res.status(400).send(err)
     }
@@ -38,6 +41,7 @@ Router.post('/signup', async (req, res) => {
 
 
 Router.post('/login', async (req, res) => {
+    console.log(req.body)
     const { error } = loginValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -50,8 +54,14 @@ Router.post('/login', async (req, res) => {
     if (!validPass) return res.status(400).send('Invalid password');
 
     //create and assingn a token
-    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    res.header('access-token', token).send(token);
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET,{expiresIn:"1h"});
+    // res.header('access-token', token).send(token);
+    return res.status(200).json({
+        message:"login successful",
+        token:token
+    })
+    
+    
 
 
 })

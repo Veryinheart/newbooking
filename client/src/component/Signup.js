@@ -64,6 +64,7 @@ export default function Signup() {
   const classes = useStyles();
 
   const [user, setUser] = useState({
+    id:'',
     firstName: '',
     lastName: '',
     password: '',
@@ -71,7 +72,16 @@ export default function Signup() {
   });
 
   const Signup = ()=>{
-     axios.post('/api/user/signup',user);
+     axios.post('/api/user/signup',user)
+     .then(res=>{
+      if(res.status==200 && res.data.message=="signup successful"){
+        window.location.href="/login";
+       }
+      })
+     .catch(function(e){
+      console.log('Oops,error');
+    })
+
   //   fetch('/api/user/signup',{
   //     method:'post',
   //     body: JSON.stringify(user),

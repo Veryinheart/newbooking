@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import Avatar from '@material-ui/core/Avatar';
 import { Avatar } from 'antd';
 import Button from '@material-ui/core/Button';
@@ -13,13 +13,18 @@ import Grid from '@material-ui/core/Grid';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Axios from 'axios';
+
+
+
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-       Newbooking
+        Newbooking
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -59,24 +64,52 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignInSide() {
+
+  const [User, setUser] = useState({});
   const classes = useStyles();
+
+  const change = (e) => {
+    setUser({
+      ...User,
+      [e.target.name]: e.target.value
+    });
+  }
+  const submit = (e) => {
+    e.preventDefault();
+    Axios.post('/api/user/login', {
+      email: User.email,
+      password: User.password
+    })
+    .then(res => {
+     
+      if (res.status == 200) 
+      localStorage.setItem('access-token',res.data.token); 
+      window.location.href="/home";
+ 
+    })
+    .catch(function(e){
+      console.log('Oops,error');
+    })
+  }
+
+
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      
-      <Grid item xs={false} sm={4} md={7} className={classes.image}  href='/home'/>
-     
+
+      <Grid item xs={false} sm={4} md={7} className={classes.image} href='/home' />
+
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          
-          <Avatar className={classes.avatar} icon="user" size="large" style={{backgroundColor:'#3f51b5'}}>
+
+          <Avatar className={classes.avatar} icon="user" size="large" style={{ backgroundColor: '#3f51b5' }}>
             {/* <LockOutlinedIcon /> */}
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={submit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -87,6 +120,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={change}
             />
             <TextField
               variant="outlined"
@@ -98,6 +132,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={change}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
