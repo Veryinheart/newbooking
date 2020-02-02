@@ -82,7 +82,7 @@ export default function SignInSide() {
     })
     .then(res => {
      
-      if (res.status == 200) 
+      if (res.status === 200) 
       localStorage.setItem('access-token',res.data.token); 
       window.location.href="/home";
  

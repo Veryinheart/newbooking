@@ -3,7 +3,7 @@ import { Layout, Menu, Icon, Dropdown, Button, Input, Pagination, List } from 'a
 import './Home.css';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
-import { Row, Col } from 'antd';
+import { Row, Col, Container } from 'reactstrap';
 import HotelContent from '../layout/Content';
 import Footer from '../layout/Footer';
 import Typography from '@material-ui/core/Typography';
@@ -51,51 +51,17 @@ export class Home extends Component {
         return (
             <div>
                 <Layout>
-                    {/* <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-                        <div className="logo" />
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                            <Menu.Item key="1">
-                                <Icon type="user" />
-                                <span>User</span>
-                            </Menu.Item>
-                            <Menu.Item key="2">
-                                <Icon type="trademark" />
-                                <span>reservation</span>
-                            </Menu.Item>
-                            <Menu.Item key="3">
-                                <Icon type="contact us" />
-                                <span>nav 3</span>
-                            </Menu.Item>
-                            <Menu.Item key="4">
-                                <Icon type="contact us" />
-                                <span>nav 3</span>
-                            </Menu.Item>
-                            <Menu.Item key="5">
-                                <Icon type="contact us" />
-                                <span>nav 3</span>
-                            </Menu.Item>
-                            <Menu.Item key="6">
-                                <Icon type="contact us" />
-                                <span>nav 3</span>
-                            </Menu.Item>
 
-
-                        </Menu>
-                    </Sider> */}
-                    <Layout>
-                        <div>
-                            <Header style={{ background: '#fff', padding: 0 }}>
-
-                                {/* <Typography
-                                    // component="h1"
-                                    variant="h7"
-                                    color="inherit"
-                                    align="flex"
-                                    // noWrap
-                                    // className={classes.toolbarTitle}
-                                    >
-                                    Newbooking
-                                    </Typography> */}
+                    <Header style={{ background: '#fff', padding: 0 }}>
+                    <Container>
+                        <Row>
+                            {/* <Col md="4" xs="4">
+                                <Button>Home</Button>
+                            </Col>
+                            <Col md="4" xs="4">
+                                <Button>Home</Button>
+                            </Col>
+                            <Col md="4" xs="4"> */}
                                 <Dropdown overlay={menu} >
                                     <Button style={{ float: 'right', marginRight: '10px', marginTop: '10px' }}>
                                         <Icon type="user" />
@@ -106,33 +72,22 @@ export class Home extends Component {
                                         Language <Icon type="down" />
                                     </Button>
                                 </Dropdown>
+                            
+                         </Row>
+                        </Container>
+                    </Header>
 
+                    <Content style={{
+                        margin: '24px 16px',
+                        padding: 24,
+                        background: '#fff',
+                        minHeight: 380,
+                    }}>
+                        <HotelContent/>
+                        <Footer/>
 
+                    </Content>
 
-
-
-
-                            </Header>
-                        </div>
-                        <Content
-                            style={{
-                                margin: '24px 16px',
-                                padding: 24,
-                                background: '#fff',
-                                minHeight: 380,
-                            }}
-                        >
-
-
-
-                            <div>
-
-                            </div>
-                            <HotelContent />
-                            <Footer />
-
-                        </Content>
-                    </Layout>
                 </Layout>
             </div>
         )

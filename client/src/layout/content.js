@@ -142,7 +142,7 @@ class Content extends Component {
                         <List.Item
                             key={item.id}
                             actions={[
-                                <IconText type="star-o" text="156" key="list-vertical-star-o" />,
+                                <IconText type="star-o" text={item.stars} key="list-vertical-star-o" />,
                                 <IconText type="like-o" text="156" key="list-vertical-like-o" />,
                                 <IconText type="message" text="2" key="list-vertical-message" />,
                             ]}
@@ -151,6 +151,8 @@ class Content extends Component {
                                     width={272}
                                     alt="logo"
                                     src={item.images[0]}
+                                    href={item.href}
+
                                 />
                             }>
                             <List.Item.Meta

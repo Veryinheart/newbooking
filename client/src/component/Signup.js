@@ -74,8 +74,10 @@ export default function Signup() {
   const Signup = ()=>{
      axios.post('/api/user/signup',user)
      .then(res=>{
-      if(res.status==200 && res.data.message=="signup successful"){
+      if(res.status===200 && res.data.message==="signup successful"){
         window.location.href="/login";
+        // history.push('login');
+        
        }
       })
      .catch(function(e){
